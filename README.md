@@ -42,11 +42,9 @@ The following API endpoints are available:
     Bash
 
     ```
-    git clone <repository_url>
+    git clone https://github.com/Lopigian/projectManagementTool
     
     ```
-
-    Kodu [dikkatli](/faq#coding) kullanın.
 
 2.  **Install dependencies:**
 
@@ -57,8 +55,6 @@ The following API endpoints are available:
     
     ```
 
-    Kodu [dikkatli](/faq#coding) kullanın.
-
 3.  **Configure environment:** Create a `.env` file and set the necessary environment variables, such as database credentials.
 4.  **Run migrations:**
 
@@ -68,9 +64,6 @@ The following API endpoints are available:
     php artisan migrate
     
     ```
-
-    Kodu [dikkatli](/faq#coding) kullanın.
-
 5.  **Start the development server:**
 
     Bash
@@ -79,9 +72,6 @@ The following API endpoints are available:
     php artisan serve
     
     ```
-
-    Kodu [dikkatli](/faq#coding) kullanın.
-
 
 ### API Usage Example
 
@@ -106,9 +96,6 @@ curl -X POST http://localhost:8000/api/auth/login \
   }'
 
 ```
-
-Kodu [dikkatli](/faq#coding) kullanın.
-
 **Note:** Replace `http://localhost:8000` with your actual application URL.
 
 ### Additional Notes
