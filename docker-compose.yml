@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+    image: project-management
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    ports:
+      - "8000:80"
+      - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+    volumes:
+      - '.:/var/www/html'
+    depends_on:
+      - db
+    networks:
+      - project-management-network
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USERNAME: ${DB_USERNAME}
+    volumes:
+        - dbdata:/var/lib/mysql
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    networks:
+      - project-management-network
+
+networks:
+  project-management-network:
+    driver: bridge
+
+volumes:
+    dbdata:
+        driver: local
+
